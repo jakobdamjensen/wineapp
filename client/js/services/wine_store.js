@@ -17,7 +17,7 @@ var wineWrapper = {
 				return item.PriceRetail;
 			},
 			rating(){
-				return item.Ratings.HighestRating;
+				return item.Ratings.HighestScore;
 			}
 		}
 	}
