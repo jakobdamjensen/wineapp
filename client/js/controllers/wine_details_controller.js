@@ -1,7 +1,7 @@
-export var wineListController = function(wineStore){
+export var wineDetailsController = function($stateParams, wineStore){
 	var model = this;
 
-	model.wines = [];
+	model.wine = [];
 
-	wineStore.all().then((wines) => model.wines = wines);
+	wineStore.getSingle($stateParams.wineId).then((wine) => model.wine = wine);
 };
