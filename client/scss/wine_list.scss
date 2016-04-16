@@ -1,0 +1,33 @@
+.wine-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.wine-list__item {
+
+}
+
+.wine-list__item-link {
+  display: block;
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.wine-list__item-name {
+  display: block;
+  font-weight: 100;
+  font-size: 16px;
+  padding-bottom: 5px;
+}
+
+.wine-list__item-details {
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.wine-list__item-detail {
+
+}

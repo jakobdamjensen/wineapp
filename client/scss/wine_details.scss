@@ -1,0 +1,27 @@
+.wine-details {
+	padding: $gutter;
+}
+
+.wine-details__name {
+  font-size: 20px;
+  font-weight: 100;
+  margin-bottom: $gutter();
+}
+
+.wine-details__data-list {
+
+}
+
+.wine-details__data-list-row {
+  display: flex;
+  padding-bottom: 5px;
+}
+
+.wine-details__data-list-label {
+  flex-basis: 100px;
+  font-weight: bold;
+}
+
+.wine-details__data-list-value {
+  font-weight: 100;
+}
