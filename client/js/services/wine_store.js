@@ -1,56 +1,101 @@
+import {wine} from '../models/wine';
+
 var wineWrapper = {
-	wrap(item){
-		return {
-			id() {
-				return item.Id;
-			},
-			name() {
-				var match = item.Name.match(/(.*)\s(\d{4})$/);
-				return match ? match[1] : item.Name;
-			},
-			year() {
-				// Simple regex to extract the year from the name
-				var match = item.Name.match(/\s(\d{4})$/);
-				return match ? match[1] : 0;
-			},
-			retailPrice(){
-				return item.PriceRetail;
-			},
-			rating(){
-				return item.Ratings.HighestScore;
-			}
-		}
+	wrap({name, year, retailPrice, rating, id}){
+		return wine({name, year, retailPrice, rating, id});
 	}
 };
 
-//http://services.wine.com/api/beta2/service.svc/json/catalog?apikey=06bfbef7d9ef00636951cb303e397bf3
+/**
+ * wineStore service handles all saving and retrieving of wine items from the local store.
+ */
+
+const WINES_KEY = 'wine_store__wines';
+const NEW_WINE_ITEM_KEY = 'wine_store__new_wine_item';
+const WINES_ID_KEY = 'wine_store__next_id';
+
 export var wineStore = function ($http, $q) {
+	var service = this;
+
+
+	service.all = all;
+	service.getSingle = getSingle;
+	service.getNewItem = getNewItem;
+	service.storeNewItem = storeNewItem;
+	service.create = create;
+	service.update = update;
+
 
 	function all() {
-		/*return $q((resolve) => {
-		 setTimeout(() => resolve(JSON.parse(localStorage.getItem('wines'))));
-		 });*/
-		return $http.get('http://services.wine.com/api/beta2/service.svc/json/catalog?apikey=06bfbef7d9ef00636951cb303e397bf3&type=wine')
-			.then((result) => {
-				localStorage.setItem('wines', JSON.stringify(result.data.Products.List));
-				return result.data.Products.List.map((item) => wineWrapper.wrap(item));
-			})
+		return $q((resolve) => {
+		 	setTimeout(() => {
+				var wines = JSON.parse(localStorage.getItem(WINES_KEY));
+
+				if( !wines ){
+					wines = [];
+				}
+
+				resolve(wines.map((item) => wineWrapper.wrap(item)));
+			});
+		 });
 	}
 
 	function getSingle(id) {
+		return all()
+			.then((wines) => wines.filter((wine) => wine.id() == id)[0]);
+	}
+
+	function create(item){
+		return all()
+			.then((wines) => {
+				var newWine = wine({
+					id: nextId(),
+					name: item.name(),
+					retailPrice: item.retailPrice(),
+					rating: item.rating(),
+					year: item.year()
+				});
+
+				wines.push(newWine);
+
+				updateLocalStorage(wines);
+
+				return newWine;
+			})
+	}
+
+	function update(item){
+
+	}
+
+	function getNewItem(){
 		return $q((resolve) => {
 			setTimeout(() => {
-				var wines = JSON.parse(localStorage.getItem('wines'));
-				var wineFound = wines.filter((wine) => wine.Id == id)[0];
-
-				resolve(wineWrapper.wrap(wineFound));
+				var newItemRaw = localStorage.getItem(NEW_WINE_ITEM_KEY);
+				var newItem = wineWrapper.wrap(JSON.parse(newItemRaw));
+				resolve(newItem);
 			});
 		});
 	}
 
-	return {
-		all,
-		getSingle
+	function storeNewItem(item){
+		return $q((resolve) => {
+			setTimeout(() => {
+				localStorage.setItem(NEW_WINE_ITEM_KEY, JSON.stringify(item.toJSON()));
+				resolve(item);
+			});
+		});
 	}
 
+	function updateLocalStorage(wines){
+		localStorage.setItem(WINES_KEY, JSON.stringify(wines.map((item) => item.toJSON())));
+	}
+
+	function nextId(){
+		var id = localStorage.getItem(WINES_ID_KEY) || 0;
+
+		localStorage.setItem(WINES_ID_KEY, ++id);
+
+		return id;
+	}
 };
