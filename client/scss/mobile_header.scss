@@ -1,0 +1,32 @@
+$mobile-header__height: 40px;
+
+.mobile-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $mobile-header__height;
+  display: flex;
+  background-color: #eee;
+  border-bottom: 1px solid rgba(0,0,0, 0.2);
+  align-items: center;
+  z-index: +1;
+}
+
+.mobile-header__title {
+  flex: 1;
+  text-align: center;
+}
+
+.mobile-header__actions {
+  width: 80px;
+
+  &:first-of-type {
+	text-align: left;
+  }
+
+  &:last-of-type {
+	text-align: right;
+  }
+
+}
