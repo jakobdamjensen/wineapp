@@ -1,6 +1,7 @@
 import {wineListController} from './controllers/wine_list_controller';
 import {wineDetailsController} from './controllers/wine_details_controller';
 import {newWineController} from './controllers/new_wine_controller';
+import {newWineDetailsController} from './controllers/new_wine_details_controller';
 
 export var routes = function ($stateProvider, $urlRouterProvider) {
 
