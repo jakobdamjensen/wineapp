@@ -1,0 +1,30 @@
+<div class="modal">
+    <header class="mobile-header">
+        <div class="mobile-header__title">New wine details</div>
+    </header>
+
+    <div class="mobile-content">
+        <form class="wine-form" ng-submit="form.onFormSubmit()">
+            <div class="wine-form__input-block">
+                <label for="wine-form__name" class="wine-form__input-block-label">Name</label>
+                <input type="text" class="wine-form__input-block-input" ng-model="form.newWine.name"
+                       id="wine-form__name"/>
+            </div>
+
+            <div class="wine-form__input-block">
+                <label for="wine-form__year" class="wine-form__input-block-label">Year</label>
+                <input type="text" class="wine-form__input-block-input" ng-model="form.newWine.year"
+                       id="wine-form__year"/>
+            </div>
+
+            <div class="wine-form__input-block">
+                <label for="wine-form__rating" class="wine-form__input-block-label">Rating</label>
+                <input type="text" class="wine-form__input-block-input" ng-model="form.newWine.rating"
+                       id="wine-form__rating"/>
+            </div>
+
+            <button type="submit">Create wine</button>
+        </form>
+    </div>
+</div>
+

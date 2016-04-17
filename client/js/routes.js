@@ -25,6 +25,16 @@ export var routes = function ($stateProvider, $urlRouterProvider) {
 				}
 			}
 		})
+		.state('new_wine_details', {
+			url: '/wines/new_details',
+			views: {
+				main: {
+					templateUrl: '/client/views/new_wine_details_form.html',
+					controller: newWineDetailsController,
+					controllerAs: 'form'
+				}
+			}
+		})
 		.state('wines_details', {
 			url: '/wines/:wineId',
 			views: {
