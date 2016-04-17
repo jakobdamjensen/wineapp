@@ -1,16 +1,25 @@
+<header class="mobile-header">
+    <div class="mobile-header__actions">
+        <a ui-sref="wines()" class="wine-list__item-link">Back</a>
+    </div>
+    <div class="mobile-header__title">Wine details</div>
+    <div class="mobile-header__actions">
+    </div>
+</header>
+
 <section class="wine-details">
     <h1 class="wine-details__name" >{{ctrl.wine.name()}}</h1>
 
     <div class="wine-details__data-list">
-        <div class="wine-details__data-list-row">
+        <div class="wine-details__data-list-row" ng-show="ctrl.wine.year()">
             <div class="wine-details__data-list-label">Year</div>
             <div class="wine-details__data-list-value">{{ctrl.wine.year()}}</div>
         </div>
-        <div class="wine-details__data-list-row">
+        <div class="wine-details__data-list-row" ng-show="ctrl.wine.rating()">
             <div class="wine-details__data-list-label">Rating</div>
-            <div class="wine-details__data-list-value">{{ctrl.wine.rating()}}</div>
+            <div class="wine-details__data-list-value">{{ctrl.wine.rating()}} ({{ctrl.wine.highestRating()}})</div>
         </div>
-        <div class="wine-details__data-list-row">
+        <div class="wine-details__data-list-row" ng-show="ctrl.wine.retailPrice()">
             <div class="wine-details__data-list-label">Retail price</div>
             <div class="wine-details__data-list-value">{{ctrl.wine.retailPrice()}}</div>
         </div>
