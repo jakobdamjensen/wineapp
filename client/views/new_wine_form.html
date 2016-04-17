@@ -1,0 +1,46 @@
+<div class="modal">
+    <header class="mobile-header">
+        <div class="mobile-header__actions">
+            <a ui-sref="wines()" class="wine-list__item-link">Back</a>
+        </div>
+        <div class="mobile-header__title">Add wine</div>
+        <div class="mobile-header__actions">
+        </div>
+    </header>
+
+    <div class="mobile-content">
+        <section class="wine-form">
+            <div class="wine-form__input-block">
+                <label for="wine-form__name" class="wine-form__input-block-label">Name</label>
+                <input type="text" class="wine-form__input-block-input" ng-model="form.searchQuery"
+                       id="wine-form__name"/>
+            </div>
+
+            <ul class="wine-list">
+                <li class="wine-list__item" ng-show="form.newWine.name">
+                    <div ng-click="form.onItemSelected(form.newWine)" class="wine-list__item-link">
+                        <span class="wine-list__item-name">Create new wine</span>
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="wine-list" ng-show="form.wines.length">
+                <li class="wine-list__group">Or add wine using data from wine.com</li>
+                <li ng-repeat="wine in form.wines" class="wine-list__item">
+                    <div ng-click="form.onItemSelected(wine)" class="wine-list__item-link">
+                        <span class="wine-list__item-name">{{wine.name()}}</span>
+
+                        <div class="wine-list__item-details">
+                                <span class="wine-list__item-detail">
+                                    {{wine.year()}}
+                                    {{wine.rating()}}
+                                    {{wine.retailPrice()}}
+                                </span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </div>
+</div>
+
