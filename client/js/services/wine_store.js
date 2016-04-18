@@ -25,6 +25,7 @@ export var wineStore = function ($http, $q) {
 	service.create = create;
 	service.update = update;
 
+	service.wines = [];
 
 	function all() {
 		return $q((resolve) => {
@@ -35,7 +36,9 @@ export var wineStore = function ($http, $q) {
 					wines = [];
 				}
 
-				resolve(wines.map((item) => wineWrapper.wrap(item)));
+				service.wines = wines.map((item) => wineWrapper.wrap(item));
+
+				resolve(service.wines);
 			});
 		 });
 	}
@@ -59,6 +62,8 @@ export var wineStore = function ($http, $q) {
 				wines.push(newWine);
 
 				updateLocalStorage(wines);
+
+				service.wines = wines;
 
 				return newWine;
 			})
