@@ -1,8 +1,10 @@
 $gutter: 20px;
 
-@import "wine_list";
-@import "wine_details";
 @import "mobile_header";
 @import "mobile_content";
+
+@import "wine_list";
+@import "wine_details";
+
 @import "modal";
 @import "wine_form";
