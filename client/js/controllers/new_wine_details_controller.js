@@ -8,10 +8,11 @@ export var newWineDetailsController = function($scope, $state, wineAPI, wineStor
 
 	wineStore.getNewItem().then((newItem) => {
 		form.newWine = newItem.toJSON();
+		form.newWine.rating = 3;
 	});
 
 	function onFormSubmit(){
 		wineStore.create(wine(form.newWine))
-			.then((newWineItem) => $state.go('wines_details', {wineId: newWineItem.id()}))
+			.then((newWineItem) => $state.go('wines.details', {wineId: newWineItem.id()}))
 	}
 };
