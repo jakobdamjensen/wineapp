@@ -1,0 +1,36 @@
+<header class="mobile-header">
+    <div class="mobile-header__actions"></div>
+    <div class="mobile-header__title">Wine collection</div>
+    <div class="mobile-header__actions">
+        <a ui-sref="wines.new_wine()" class="wine-list__item-link">Add</a>
+    </div>
+</header>
+
+
+<ul class="wine-list">
+    <li ng-repeat="wine in ctrl.wines" class="wine-list__item">
+        <a ui-sref="wines.details({wineId: {{wine.id()}}})" class="wine-list__item-link">
+            <span class="wine-list__item-name">{{wine.name()}}</span>
+
+            <div class="wine-list__item-details">
+                <span class="wine-list__item-detail-label">
+                    Year:
+                </span>
+                <span class="wine-list__item-detail">
+                    {{wine.year()}}
+                </span>
+                <span class="wine-list__item-detail-label">
+                    Rating:
+                </span>
+                <span class="wine-list__item-detail">
+                    {{wine.rating()}}
+                </span>
+            </div>
+        </a>
+    </li>
+</ul>
+
+<div ui-view="details" class="details-container"></div>
+
+
+<div ui-view="modal" class="modal-container"></div>

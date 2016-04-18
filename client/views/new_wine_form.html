@@ -1,0 +1,61 @@
+<div class="modal">
+    <header class="mobile-header">
+        <div class="mobile-header__actions">
+            <a ui-sref="wines()" class="wine-list__item-link">Cancel</a>
+        </div>
+        <div class="mobile-header__title">Add wine</div>
+        <div class="mobile-header__actions">
+        </div>
+    </header>
+
+    <div class="mobile-content">
+        <section class="wine-form">
+            <div class="wine-form__input-block">
+                <label for="wine-form__name" class="wine-form__input-block-label">Name</label>
+                <input type="text" class="wine-form__input-block-input" ng-model="form.searchQuery"
+                       id="wine-form__name"/>
+            </div>
+
+
+
+            <ul class="wine-list" ng-show="form.wines.length">
+                <li class="wine-list__item">
+                    <div ng-click="form.onItemSelected(form.newWine)" class="wine-list__item-link">
+                        <span class="wine-list__item-name">Create new wine with name "{{form.searchQuery}}"</span>
+
+                        <div class="wine-list__item-details">
+                        </div>
+                    </div>
+                </li>
+
+                <li class="wine-list__group">Or add wine using data from wine.com</li>
+
+                <li ng-repeat="wine in form.wines" class="wine-list__item">
+                    <div ng-click="form.onItemSelected(wine)" class="wine-list__item-link">
+                        <span class="wine-list__item-name">{{wine.name()}}</span>
+
+                        <div class="wine-list__item-details">
+                            <div class="wine-list__item-detail" ng-show="wine.year()">
+                                <span class="wine-list__item-detail-label">
+                                    Year:
+                                </span>
+                                <span class="wine-list__item-detail-value">
+                                    {{wine.year()}}
+                                </span>
+                            </div>
+                            <div class="wine-list__item-detail" ng-show="wine.rating()">
+                                <span class="wine-list__item-detail-label">
+                                    Rating:
+                                </span>
+                                <span class="wine-list__item-detail-value">
+                                    {{wine.rating()}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </div>
+</div>
+

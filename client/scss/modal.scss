@@ -1,0 +1,40 @@
+.modal {
+
+
+}
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  //transition: transform 0.5s ease-in-out;
+  /* transform: translateY(100%); */
+  z-index: +1;
+
+  &:empty {
+	visibility: hidden;
+  }
+
+  &.ng-enter {
+	transition: transform .5s ease-in-out;
+	transform: translateY(100%);
+  }
+
+  &.ng-enter-active {
+	transform: translateY(0);
+  }
+
+  &.ng-leave {
+	transition: transform .5s ease-in-out;
+	transform: translateY(0);
+  }
+
+  &.ng-leave-active {
+	transform: translateY(100%);
+  }
+}
+
+

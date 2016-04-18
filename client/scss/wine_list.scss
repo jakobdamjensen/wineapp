@@ -1,0 +1,57 @@
+.wine-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.wine-list__item {
+  position: relative;
+
+  &:after {
+	content: '>';
+	position: absolute;
+	right: $gutter;
+	top: calc(50% - 7px);
+  }
+}
+
+.wine-list__item-link {
+  display: block;
+  text-decoration: none;
+  color: black;
+  padding: 20px 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.wine-list__item-name {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  padding-bottom: 10px;
+  padding-right: $gutter * 2;
+}
+
+.wine-list__item-details {
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.wine-list__item-detail {
+  display: inline-block;
+  margin-right: $gutter;
+}
+
+.wine-list__item-detail-label {
+  font-weight: 600;
+}
+
+.wine-list__item-detail-value {
+
+}
+
+.wine-list__group {
+  background-color: #eee;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-width: 1px 0;
+  padding: 5px 10px;
+}

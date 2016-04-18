@@ -1,0 +1,33 @@
+.wine-form {
+  padding: $gutter;
+}
+
+.wine-form__input-block {
+  padding-bottom: $gutter;
+}
+
+.wine-form__input-block-label {
+  display: block;
+  width: 100%;
+}
+
+.wine-form__input-block-input {
+  display: block;
+  width: 100%;
+  padding: 7px;
+}
+
+button {
+  display: block;
+  border: 0;
+  padding: 10px;
+
+  width: 100%;
+}
+
+button[type="submit"] {
+  background-color: rgba(0, 220, 0, 1);
+  text-transform: uppercase;
+  color: white;
+
+}

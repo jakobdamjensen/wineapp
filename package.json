@@ -1,0 +1,52 @@
+{
+  "name": "wineapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://jakobdamjensen@github.com/jakobdamjensen/wineapp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jakobdamjensen/wineapp/issues"
+  },
+  "homepage": "https://github.com/jakobdamjensen/wineapp#readme",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.1.18",
+    "babelify": "^7.2.0",
+    "body-parser": "^1.15.0",
+    "browser-sync": "^2.10.0",
+    "browserify": "^12.0.1",
+    "es6-promise": "^3.1.2",
+    "express": "^4.13.4",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-babel": "^6.1.0",
+    "gulp-express": "^0.3.5",
+    "gulp-import-css": "^0.1.2",
+    "gulp-plumber": "^1.0.1",
+    "gulp-replace": "^0.5.4",
+    "gulp-run": "^1.6.12",
+    "gulp-sass": "^2.1.0",
+    "gulp-sequence": "^0.4.1",
+    "gulp-sizereport": "^1.1.3",
+    "gulp-watch": "^4.3.5",
+    "path": "^0.12.7",
+    "rollup-plugin-babel": "^2.3.8",
+    "rollup-plugin-commonjs": "^2.2.0",
+    "rollup-plugin-json": "^2.0.0",
+    "rollup-plugin-npm": "^1.3.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "angular": "^1.5.3",
+    "angular-animate": "^1.5.3",
+    "angular-messages": "^1.5.3",
+    "angular-ui-router": "^1.0.0-alpha.4"
+  }
+}
