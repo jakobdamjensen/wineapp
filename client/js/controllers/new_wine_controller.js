@@ -15,16 +15,9 @@ export var newWineController = function($scope, $state, wineAPI, wineStore){
 	$scope.$watch(() => form.searchQuery, searchWineAPIForMatches);
 
 	function onItemSelected(item){
-		if( item === form.newWine ){
-			// is new - prepare to add descriptions
-			wineStore.storeNewItem(item).then(() => {
-				$state.go('new_wine_details');
-			})
-		} else {
-			wineStore.create(item).then((storedItem) => {
-				$state.go('wines_details', {wineId: storedItem.id()});
-			});
-		}
+		wineStore.storeNewItem(item).then(() => {
+			$state.go('wines.new_wine_details');
+		});
 	}
 
 	var queryTimestamp;
