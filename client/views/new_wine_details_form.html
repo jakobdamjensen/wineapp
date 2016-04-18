@@ -19,8 +19,11 @@
 
             <div class="wine-form__input-block">
                 <label for="wine-form__rating" class="wine-form__input-block-label">Rating</label>
-                <input type="text" class="wine-form__input-block-input" ng-model="form.newWine.rating"
-                       id="wine-form__rating"/>
+                <select ng-model="form.newWine.rating">
+                    <option id="wine-form__rating" ng-repeat="num in [5,4,3,2,1]" ng-selected="num == form.newWine.rating">
+                        {{num}}
+                    </option>
+                </select>
             </div>
 
             <button type="submit">Create wine</button>
